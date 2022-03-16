@@ -48,21 +48,10 @@ export async function showText() {
     $('.context-content').empty()
     $('.gutter-vertical').remove()
 
-    let text = add_spans(Data.data['content'])
+    let text = add_spans("The example goes here")
     $('.comment-content').append(text)
-
-    if (Data.data['context'] == ' ' || Data.data['context'] == '') {
-        $('#contentContainer').css('height', '100%')
-        $('#bottomContainer').hide()
-    } else {
-        Split(['#contentContainer', '#bottomContainer'], {
-            sizes: [50, 50],
-            direction: 'vertical',
-            gutterSize: 8,
-            cursor: 'row-resize',
-        })
-        $('.context-content').append(Data.data['context'])
-    }
+    $('#contentContainer').css('height', '100%')
+    $('#bottomContainer').hide()
 }
 
 /**
@@ -241,6 +230,13 @@ export class FreetextTask implements Task {
     }
     async onEntry(question: string, answer: string = 'Continue') {
         $('#question').append(question)
+
+        $('#question').append('<hr>')
+        $('#question').append('<br><br>')
+        
+        const question_text = $('<div style="font-size: large;"></div>')
+        $('#question').append(question_text)
+        question_text.append(Data.data['content'])
         const textarea = $(
             '<textarea id="textarea" rows="10" cols="50" style="width:100%;"></textarea>'
         )

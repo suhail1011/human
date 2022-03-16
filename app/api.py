@@ -49,3 +49,8 @@ def api_multilabel(state_machine):
 def api_singlelabel(state_machine):
     return {'bboxes': [(15.22010770816713, 809.1400920373411, 2466.55127019975, 187.48281384441623)], 'labels' : [
          'fly', 'blackbird', 'dove', 'ant', 'mosquito', 'lion' ]}
+         
+         
+         
+def validation_script(state_machine, annotations):
+    return {'type': "ERROR", 'message': "Please fix the errors"}
