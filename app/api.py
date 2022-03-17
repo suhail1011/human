@@ -4,7 +4,8 @@
 # from src import lineSegmentation as lseg
 # ....
 
-
+from formatcheck import *
+from db import get_db
 '''
 Write your custom api functions here.
 Functions are called by the state machine and triggered by adding a 'call_api' key in protocol.yml
@@ -53,4 +54,9 @@ def api_singlelabel(state_machine):
          
          
 def validation_script(state_machine, annotations):
-    return {'type': "ERROR", 'message': "Please fix the errors"}
+    db = get_db()
+    data_id = state_machine.annotations['data_id']
+    content = db.execute(f'SELECT content FROM data WHERE id = {data_id}').fetchone()['content']
+    check_decomposition(content, annotations)
+
+    # return {'type': "ERROR", 'message': "Please fix the errors"}
