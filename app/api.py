@@ -3,7 +3,7 @@
 # from src import paragraphSegmentation as pseg
 # from src import lineSegmentation as lseg
 # ....
-
+import spacy
 from app.formatcheck import *
 from app.db import get_db
 '''
@@ -58,6 +58,7 @@ def validation_script(state_machine, annotation):
     data_id = state_machine.annotations['data_id']
     content = db.execute(f'SELECT content FROM data WHERE id = {data_id}').fetchone()['content']
     annotation_text = annotation['data']['annotation']
-    return check_decomposition(content, annotation_text)
+    nlp = spacy.load("de_core_news_sm") # spacy for entity recognition
+    return check_decomposition(content, annotation_text, nlp)
 
     # return {'type': "ERROR", 'message': "Please fix the errors"}
