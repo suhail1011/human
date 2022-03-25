@@ -31,7 +31,6 @@ dependencies:
     - charset-normalizer==2.0.12
     - click==8.0.3
     - cymem==2.0.6
-    - de-core-news-sm==3.2.0
     - flask==2.0.1
     - flask-cors==3.0.10
     - flask-login==0.5.0
@@ -64,6 +63,7 @@ dependencies:
     - spacy==3.2.3
     - spacy-legacy==3.0.9
     - spacy-loggers==1.0.1
+    - https://github.com/explosion/spacy-models/releases/download/de_core_news_sm-3.2.0/de_core_news_sm-3.2.0-py3-none-any.whl
     - srsly==2.4.2
     - tables==3.7.0
     - thinc==8.0.15
