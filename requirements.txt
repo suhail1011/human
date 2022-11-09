@@ -14,3 +14,4 @@ transitions==0.8.10
 urllib3>=1.26.5
 spacy==3.2.3
 https://github.com/explosion/spacy-models/releases/download/de_core_news_sm-3.2.0/de_core_news_sm-3.2.0.tar.gz#egg=de_core_news_sm
+Werkzeug==2.0.3
